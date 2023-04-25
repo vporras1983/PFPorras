@@ -1,0 +1,227 @@
+$colorPrimary: rgb(95, 95, 43)
+$colorSecondary: rgb(200, 200, 167)
+$colorTertiary: rgb(230, 230, 197)
+
+$colorWhite: rgb(255, 255, 255)
+$colorGrey1: rgb(220, 220, 220)
+$colorGrey2: rgb(180, 180, 180)
+$colorGrey3: rgb(50, 50, 50)
+$colorBlack: rgb(0, 0, 0)
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap")
+/* RESET */
+*
+	margin: 0
+	font-family: "Roboto Slab", serif
+
+/* HEADINGS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	font-weight: 400
+	line-height: 1.2
+	margin: 0.5em 0
+	color: $colorPrimary
+
+h1
+	font-size: 2.5rem
+	text-align: center
+
+h2
+	font-size: 2.2rem
+	display: block
+	clear: both
+
+h3
+	font-size: 1.8rem
+
+h4
+	font-size: 1.3em
+
+h5
+	font-size: 1rem
+
+h6
+	font-size: 0.7rem
+
+/* BOTONES */
+.btn
+	background-color: $colorPrimary
+	color: $colorWhite
+	border: none
+	transition: background-color 0.3s
+
+	&:hover
+		background-color: $colorSecondary
+		color: $colorPrimary
+
+	.card-reporte &
+		align-self: flex-end
+		margin-top: 5%
+
+/* NAVIGATION */
+
+nav
+	background-color: lightgray
+	padding: 10px 30px
+	min-width: 200px
+	ul
+		list-style: none
+		display: inline-block
+		align-items: center
+		li
+			display: inline-block
+			a
+				display: inline-block
+				color: $colorBlack
+				text-decoration: none
+				font-size: 1.75rem
+			a:hover
+				font-weight: bold
+				color: $colorGrey3
+				transition: color 0.3s
+
+			/* acá bajo tengo el selector para que encuentre la página que está seleccionada en la web */
+			a[href="#"]
+				font-weight: bold
+				padding: 10px 20px
+				border-radius: 20px
+				background-color: $colorWhite
+				background-image: radial-gradient(ellipse at center, $colorTertiary, $colorWhite)
+				background-clip: padding-box
+				color: $colorGrey3
+	img
+		max-width: 1.8rem
+
+/* LAYOUT */
+
+.main-div
+	display: flex
+	flex-wrap: wrap
+	align-items: top
+	width: 100%
+	height: 100%
+
+	& .izquierdo
+		margin-top: 1.5rem
+		display: inline-block
+		width: 49%
+		height: 100%
+		background-color: $colorGrey1
+		padding: 5px
+
+	& .derecho
+		display: inline-block
+		width: 49%
+		height: 100%
+		background-color: $colorGrey2
+		padding: 5px
+
+/* TABLE */
+th,
+td
+	border: 1px solid
+
+table
+	width: 97%
+	margin: 2rem 0.8rem 0.2rem 0.8rem
+	border-collapse: collapse
+
+	tr
+		th
+			margin: 0.2rem
+			padding: 0.2rem
+
+		td
+			margin: 0.2rem
+			padding: 0.2rem
+
+	thead
+		color: $colorSecondary
+		background-color: $colorPrimary
+		border-color: $colorPrimary
+
+.selected-item-data
+	display: block
+
+	.title
+		font-weight: bold
+		margin-left: 0.5rem
+
+	.data
+		margin-left: 0.5rem
+
+.table-responsive
+	overflow-x: auto
+	overflow-y: hidden
+	white-space: nowrap
+
+.card-img-top
+	padding: 10px, 5px
+	overflow: hidden
+	border-radius: 50%
+	border-width: 2px
+	border-color: $colorBlack
+
+.card-reporte
+	border-radius: 5%
+	border-width: 3px
+	margin: 3%
+	padding: 5px
+	text-align: center
+	min-width: 250px
+	max-width: 600px
+
+.row
+	justify-content: center
+
+.productImage
+	max-width: 300px
+	margin: 5%
+
+.product-link
+	color: $colorPrimary
+.product-link:hover
+	color: $colorBlack
+	text-decoration: none
+	font-weight: 501
+
+@media (max-width: 700px)
+	.card
+		margin-left: 50%
+		margin-right: 50%
+
+@media (min-width: 600px)
+	.tablaOrdenes,
+	.tablaClientes,
+	.tablaProductos
+		display: inline
+	.listaOrdenes,
+	.listaClientes,
+	.listaProductos
+		display: none
+	.productImage
+		max-width: 100px
+
+@media (max-width: 600px)
+	.tablaOrdenes,
+	.tablaClientes,
+	.tablaProductos
+		display: none
+	.listaOrdenes,
+	.listaClientes,
+	.listaProductos
+		display: block
+
+@media (max-width: 400px)
+	table
+		width: 95%
+		margin: 1rem 0.5rem 0.1rem 0.5rem
+		border-collapse: collapse
+
+	.card-reporte
+		margin: 5%
