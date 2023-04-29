@@ -230,7 +230,8 @@ table
 @media (max-width: 400px)
 	table
 		@include margin4(1rem, 0.5rem, 0.1rem, 0.5rem)
-		@extend .table-sm !optional //no está encontrando la clase .table-sm, a pesar de que está importada de bootstrap, incluso descargando el archivo
+		@extend .table-sm !optional
+		/*no está encontrando la clase .table-sm, a pesar de que está importada de bootstrap, incluso descargando el archivo*/
 		width: 95%
 		border-collapse: collapse
 
