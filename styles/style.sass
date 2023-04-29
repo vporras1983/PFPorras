@@ -9,6 +9,8 @@ $colorGrey3: rgb(50, 50, 50)
 $colorBlack: rgb(0, 0, 0)
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap")
+@import url("../styles/css/bootstrap.min.css")
+
 /* RESET */
 *
 	margin: 0
@@ -16,10 +18,10 @@ $colorBlack: rgb(0, 0, 0)
 
 /* FUNCTIONS */
 @mixin margin2($sup_inf, $izq_der)
-  margin: $sup_inf $izq_der
+	margin: $sup_inf $izq_der
 
 @mixin margin4($sup, $der, $inf, $izq)
-  margin: $sup $der $inf $izq
+	margin: $sup $der $inf $izq
 
 @mixin width-height($width, $height)
 	width: $width
@@ -136,7 +138,7 @@ td
 
 table
 	width: 97%
-	@include @include margin4(2rem, 0.8rem, 0.2rem, 0.8rem)
+	@include margin4(2rem, 0.8rem, 0.2rem, 0.8rem)
 	border-collapse: collapse
 
 	tr
@@ -228,6 +230,7 @@ table
 @media (max-width: 400px)
 	table
 		@include margin4(1rem, 0.5rem, 0.1rem, 0.5rem)
+		@extend .table-sm !optional //no está encontrando la clase .table-sm, a pesar de que está importada de bootstrap, incluso descargando el archivo
 		width: 95%
 		border-collapse: collapse
 
