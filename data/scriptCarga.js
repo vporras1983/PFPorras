@@ -424,12 +424,15 @@ function cargarProductos() {
 	const tablaProductos = document.querySelector("#tablaProductos tbody");
 	if (tablaProductos) {
 		productos.forEach((producto) => {
+			var txtAlt = ("Imagen " + (producto.image === undefined ? "no disponible" : producto.nombre)).replaceAll(
+				" ",
+				"_"
+			);
+			var txtSrc = producto.image === undefined ? "../images/products/nodisponible.webp" : producto.image;
 			if (tablaProductos) {
 				const fila = document.createElement("tr");
 				fila.innerHTML = `
-        <td class="text-center mx-auto"><img class="productImage mx-auto" src=${
-					producto.image === undefined ? "../images/products/nodisponible.webp" : producto.image
-				} alt=${"Imagen " + producto.image === undefined ? "no disponible" : producto.nombre} /></td>
+        <td class="text-center mx-auto"><img class="productImage mx-auto" src=${txtSrc} alt=${txtAlt} /></td>
         <td class="text-center">${producto.id}</td>
         <td class="text-left">${producto.nombre}</td>
         <td class="text-right">${producto.cantidad}</td>
@@ -442,16 +445,14 @@ function cargarProductos() {
 				const card = document.createElement("div");
 				card.className = "card card-reporte col-sm-12 col-md-5 col-lg-3";
 				card.innerHTML = `
-        <img class="productImage" src=${
-					producto.image === undefined ? "../images/products/nodisponible.webp" : producto.image
-				} alt=${"Imagen " + producto.image === undefined ? "no disponible" : producto.nombre} />
+        <img class="productImage" src=${txtSrc} alt=${txtAlt} />
         <h2 class="razon-social">${producto.id}</h2>
-							<div class="datos">
-								<p><strong>Nombre: </strong>${producto.nombre}</p>
-								<p><strong>Cantidad: </strong>${producto.cantidad}</p>
-								<p><strong>Ubicación: </strong>${producto.ubicacion}</p>
-								<p><strong>Precio: </strong>$ ${producto.precio}</p>
-							</div> `;
+		<div class="datos">
+			<p><strong>Nombre: </strong>${producto.nombre}</p>
+			<p><strong>Cantidad: </strong>${producto.cantidad}</p>
+			<p><strong>Ubicación: </strong>${producto.ubicacion}</p>
+			<p><strong>Precio: </strong>$ ${producto.precio}</p>
+		</div> `;
 				listaProductos.appendChild(card);
 			}
 		});
